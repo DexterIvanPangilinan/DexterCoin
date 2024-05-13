@@ -28,6 +28,7 @@ contract Coin is ERC20 {
         _burn(msg.sender, amount);
     }
 }
+
 Select the "Solidity Compiler" tab from the sidebar on the left to begin compiling the code. Click the "Compile DexCoin.sol" button after ensuring that the "Compiler" option is set to "0.8.0" (or another suitable version).
 
 After the code has been compiled, choose "DexCoin.sol" from the list of contracts under "Deploy and run transactions" and click the deploy button.

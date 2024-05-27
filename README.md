@@ -15,7 +15,7 @@ contract Coin is ERC20 {
     address public owner;
 
     constructor() ERC20("Coin", "Cn") {
-        _mint(msg.sender, 1000 * (1** uint256(decimals())));
+        _mint(msg.sender, 100 * (1** uint256(decimals())));
         owner = msg.sender;
     }
 
@@ -27,8 +27,15 @@ contract Coin is ERC20 {
     function burn(uint256 amount) public {
         _burn(msg.sender, amount);
     }
-}
 
+    function transfer(address to, uint256 amount) public override returns (bool) {
+        return super.transfer(to, amount);
+    }
+
+    function transferFrom(address from, address to, uint256 amount) public override returns (bool) {
+        return super.transferFrom(from, to, amount);
+    }
+}
 Select the "Solidity Compiler" tab from the sidebar on the left to begin compiling the code. Click the "Compile DexCoin.sol" button after ensuring that the "Compiler" option is set to "0.8.0" (or another suitable version).
 
 After the code has been compiled, choose "DexCoin.sol" from the list of contracts under "Deploy and run transactions" and click the deploy button.

@@ -21,22 +21,19 @@ contract Coin is ERC20 {
 
     function mint(address to, uint256 amount) public {
         require(msg.sender == owner, "Only owner can mint tokens");
-        _mint(to, amount);
+        _mint(to, amount); 
     }
 
     function burn(uint256 amount) public {
         _burn(msg.sender, amount);
     }
 
-    function transfer(address to, uint256 amount) public override returns (bool) {
+    function transfer(address to, uint256 amount)  public override returns (bool) {
+        require(amount > 0, "Transfer amount should not be zero");
         return super.transfer(to, amount);
     }
 
-    function transferFrom(address from, address to, uint256 amount) public override returns (bool) {
-        return super.transferFrom(from, to, amount);
     }
-}
-
 Select the "Solidity Compiler" tab from the sidebar on the left to begin compiling the code. Click the "Compile DexCoin.sol" button after ensuring that the "Compiler" option is set to "0.8.0" (or another suitable version).
 
 After the code has been compiled, choose "DexCoin.sol" from the list of contracts under "Deploy and run transactions" and click the deploy button.
